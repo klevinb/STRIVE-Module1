@@ -11,7 +11,7 @@ Write a function "area" which receives 2 parameters (l1,l2) and calculate the ar
 */
 
 function area(a, b){
-    return a*b;
+    return (a*b);
 }
 
 /* EXERCISE 2
