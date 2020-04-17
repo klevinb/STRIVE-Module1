@@ -94,19 +94,41 @@ console.log(reverseString("Strive"))
 Write a function "upperFirst" to capitalize the first letter of each word of a given string passed as parameter
 */
 
-function upperFirst
+function upperFirst(str) {
+    let splitStr = str.toLowerCase().split(' ');
+    for (let i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    return splitStr.join(' '); 
+ }
+ 
+ console.log(upperFirst("hei, my name is Klevin."));
 
 /* EXERCISE 9
 Write a function "cutString" to create a new string without the first and last character of a given string.
 */
 
-/* WRITE YOUR CODE HERE */
+function cutString(S){
+    let newS;
+    newS=S.substring(1,S.length-1);
+    return newS;
+}
+
+console.log(cutString("klevin"));
 
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10
 */
 
-/* WRITE YOUR CODE HERE */
+function giveMeRandom(n){
+    let array=[];
+
+    for(let i=0; i<n; i++){
+        array[i] = Math.floor(Math.random() * 11);
+    }
+    return array;
+}
+console.log(giveMeRandom(5));
 
 
 /* WHEN YOU ARE FINISHED
