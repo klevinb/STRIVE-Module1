@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+ASSIGNMENT RULES
+- The solution must be pushed to the repository and be available for the tutors by the end of the day
+- You can ask for tutor's help
+- You can google / use StackOverflow BUT we suggest you to use just the material provided
+- To test the page, just open it with your default browser.
+
+ASSIGNMENT TOPIC
+You are building a Barbers' Shop website. 
+The website is quite simple, it should include the basic information about the Shop (Name, address etc)
+and include a form to get reservation.
+
+Note: the form should just be implemented in HTML + CSS, no extra code needed.
+-->
+<html lang="en">
+  <head>
+    <!-- EXERCISE 1:
+    Specify the title, the charset (UTF-8) and the viewport of the page.
+    -->
+    <meta charset="utf-8" />
+    <title>My Fav Barber Shop</title>
+    <style>
+      h1 {
+        color: blue;
+        text-align: center;
+        font-size: 50px;
+      }
+
+      html{
+        background-color: burlywood;
+      }
+      /* EXERCISE 2:  
+       Style h1 color, alignment, size as you like it;
+       Style h2 color, alignment, size as you like it;
+       Style page background color as you like it
+       [EXTRA]
+       Set a red-ish color when the input of the forms are invalid
+       Set a ok-ish color when the input of the forms are valid
+    */
+    h2  {
+      color: brown;
+      text-align: center;
+    }
+
+    header ol {
+      list-style-type: none;
+    
+    }
+    header ol li{
+      float: left;
+      padding: 10px;
+    }
+    header ol li a {
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    .promotion {
+      background-color: red;
+      max-width: 200px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 2px 2px gray;
+      border-radius: 20px;
+      color: white;
+      font-size: 20px;
+      margin-left: 50px;
+    }
+    .promotion p {
+      color:  black;
+    }
+    #map {
+      text-align: center;
+      float: right;
+      margin-top: -190px;
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <!-- EXERCISE 11
+        Add a navbar with the links to the sections
+        -->
+        <header>
+          <ol>
+              <li><a href="photos.html">Galery</a></li>
+              <li><a href="contac.html">Contact Us</a></li>
+          </ol>
+        </header>
+        <br>
+
+    <!-- EXERCISE 3:
+            Write the main title of the barber shop and a smaller claim.
+        -->
+        <h1>Art Of Barber's</h1>
+        <h2>We make you come back!</h2>
+
+    <!-- EXERCISE 4: 
+            Write a section in which you explain a current promotion
+        -->
+        <div class="promotion">
+          14-16 Apr all menu 20$
+          <p><b>MENU</b><br>
+            Haircut : 37$<br>
+            Full Hair-Beard : 65$<br>
+            FaceMask : 22$</p>
+        </div>
+        
+
+    <!-- EXERCISE 5: 
+            Write a section with the address of the shop.
+            [OPTIONAL] Link this address to Google Maps page.
+        -->
+        <div id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.3292993593543!2d10.745125615588831!3d59.91008207136463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416f910bf3759d%3A0x12304c57f5a0ea7f!2sArt%20of%20barber!5e0!3m2!1sen!2sno!4v1587393439102!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
+          <b>Website : </b>artofbarber.no<br>
+          <b>Tel : </b>+47 666 6666</p>
+        </div>
+
+    <!-- EXERCISE 6: 
+            Write a "Leave Email" form. 
+            The form must have a field for the Email and a button for the submission of the field itself.
+            The field must accept ONLY valid emails (empty email is not a valid email).
+
+            [OPTIONAL] On submit click, console log the value of the email
+        -->
+        <br>
+        <div class="promotion">
+          <form>
+            Email<input type="email" name="email" /><br>
+            <button type="button" onclick="sendBtn()">Send</button>
+          </form>
+        </div>
+
+    <!-- EXERCISE 7: 
+            Create an "book haircut" form.
+            The form must have:
+            - phone number
+            - date
+            - name
+
+            Phone number and date are mandatory, the name is optional.
+            Create a form with a submit button, ready to be used in a real context.
+            Style it as you like it.
+            [OPTIONAL] On submit click, console log an object containing Phone Number, Date and Name.
+        -->
+
+    <!-- EXERCISE 8: 
+            Create a table with the price for the services of the barber shop
+        -->
+
+    <!-- EXERCISE 9: 
+            Place here a footer including:
+            - Name of the Barber Shop
+            - Address
+            - Phone Number
+            - Email (should be a clickable link)
+        -->
+
+    <script>
+      window.onload = function () {
+        console.log('Page loaded!')
+
+        /* EXERCISE 10:
+                    Write on console the size (height and width) of the current browser window
+                    Write on console the size (height and width) of the current page window
+                */
+      }
+    </script>
+  </body>
+</html>

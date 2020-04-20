@@ -37,6 +37,8 @@ function crazyDiff(x){
 
     if ( x > 19){
         return 3 * ad;
+    }else{
+        return ad;
     }
 
 }
@@ -46,8 +48,10 @@ Write a function "boundary" which accept an integer N and returns true if N is w
 */
 
 function boundary(N){
-    if(N>20 && N<100 || N === 400){
+    if(N>=20 && N<=100 || N === 400){
         return true;
+    }else{
+        return false;
     }
 }
 
@@ -227,6 +231,15 @@ function latestShoppingCart(obj){
 }
 
 latestShoppingCart(shoppingCart1);
+
+/* EXERCISE 16
+Create a function "loopUntil" which receives an integer X between 0 and 9.
+The function loops and prints a random number between 0 and 9 until the random number is bigger than X three times in a row.
+*/
+
+function loopUntil(X){
+
+}
 
 /* WHEN YOU ARE FINISHED
 Commit and push the code to your personal GitHub repository and share the link to your commit with your tutor.
