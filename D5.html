@@ -38,6 +38,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
        Set a red-ish color when the input of the forms are invalid
        Set a ok-ish color when the input of the forms are valid
     */
+
     h2  {
       color: brown;
       text-align: center;
@@ -79,6 +80,12 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
       margin-top: -190px;
     }
 
+    footer {
+      background-color: gainsboro;
+      padding: 20px;
+      text-align: center;
+    }
+
 
     </style>
   </head>
@@ -89,7 +96,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
         <header>
           <ol>
               <li><a href="photos.html">Galery</a></li>
-              <li><a href="contac.html">Contact Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
           </ol>
         </header>
         <br>
@@ -117,7 +124,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
             [OPTIONAL] Link this address to Google Maps page.
         -->
         <div id="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.3292993593543!2d10.745125615588831!3d59.91008207136463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416f910bf3759d%3A0x12304c57f5a0ea7f!2sArt%20of%20barber!5e0!3m2!1sen!2sno!4v1587393439102!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.3292993593543!2d10.745125615588831!3d59.91008207136463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416f910bf3759d%3A0x12304c57f5a0ea7f!2sArt%20of%20barber!5e0!3m2!1sen!2sno!4v1587393439102!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border-radius: 20px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
           <b>Website : </b>artofbarber.no<br>
           <b>Tel : </b>+47 666 6666</p>
@@ -133,7 +140,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
         <br>
         <div class="promotion">
           <form>
-            Email<input type="email" name="email" /><br>
+            Email<input id="email" type="email" name="email"/><br>
             <button type="button" onclick="sendBtn()">Send</button>
           </form>
         </div>
@@ -150,6 +157,14 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
             Style it as you like it.
             [OPTIONAL] On submit click, console log an object containing Phone Number, Date and Name.
         -->
+        <br>
+        <form class="promotion">
+          Phone Number :<br><input type="text" id="phoneNr" /><br>
+          Date :<br><input type="date" id="date" /><br>
+          Name :<br><input type="text" id="name" /><br>
+          <input type="button" onclick="sendReservation()" value="Send"/>
+        </form>
+
 
     <!-- EXERCISE 8: 
             Create a table with the price for the services of the barber shop
@@ -162,6 +177,15 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
             - Phone Number
             - Email (should be a clickable link)
         -->
+        <footer>
+          <h3>Art Of Barbers</h3><br>
+          <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
+            <b>Website : </b>artofbarber.no<br>
+            <b>Tel : </b>+47 666 6666<br>
+            <a href="mailto:artofbarber.com">Email : artofbarber.com</a>
+          </p>
+
+        </footer>
 
     <script>
       window.onload = function () {
@@ -171,6 +195,24 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
                     Write on console the size (height and width) of the current browser window
                     Write on console the size (height and width) of the current page window
                 */
+        console.log("BrowserWidth: " + window.innerWidth+ " BrowserHeight: "+ window.innerHeight);
+        console.log("ScreenWidth: " + screen.width + " ScreenHeight: "+ screen.height);
+
+      }
+
+      function sendBtn() {
+        
+      }
+
+
+      function sendReservation(){
+        let phone = document.querySelector("#phoneNr").value;
+        let date = document.querySelector("#date").value;
+        let name = document.querySelector("#name").value;
+
+        if(phone !== "" && date !== "" && name !== ""){
+          console.log(phone,date,name);
+        }
       }
     </script>
   </body>
