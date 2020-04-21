@@ -70,14 +70,28 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
       color: white;
       font-size: 20px;
       margin-left: 50px;
+      margin-top: 20px;
     }
     .promotion p {
       color:  black;
     }
-    #map {
+    .promotion span{
+      color:white;
+    }
+    .promotion table{
+      border: 2px solid black;
+      font-size: 15px;
+      width: 200px;
+      text-align: start;
+
+    }
+    aside {
       text-align: center;
       float: right;
       margin-top: -190px;
+    }
+    aside p{
+      font-size: 20px;
     }
 
     footer {
@@ -112,10 +126,10 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
         -->
         <div class="promotion">
           14-16 Apr all menu 20$
-          <p><b>MENU</b><br>
-            Haircut : 37$<br>
-            Full Hair-Beard : 65$<br>
-            FaceMask : 22$</p>
+          <p><b><span> MENU of Promotion</span></b><br>
+            Haircut : 20$<br>
+            Full Hair-Beard : 20$<br>
+            FaceMask : 20$</p>
         </div>
         
 
@@ -123,12 +137,14 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
             Write a section with the address of the shop.
             [OPTIONAL] Link this address to Google Maps page.
         -->
-        <div id="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.3292993593543!2d10.745125615588831!3d59.91008207136463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416f910bf3759d%3A0x12304c57f5a0ea7f!2sArt%20of%20barber!5e0!3m2!1sen!2sno!4v1587393439102!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border-radius: 20px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-          <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
-          <b>Website : </b>artofbarber.no<br>
-          <b>Tel : </b>+47 666 6666</p>
-        </div>
+        <aside>
+          <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.3292993593543!2d10.745125615588831!3d59.91008207136463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416f910bf3759d%3A0x12304c57f5a0ea7f!2sArt%20of%20barber!5e0!3m2!1sen!2sno!4v1587393439102!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border-radius: 20px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
+            <b>Website : </b>artofbarber.no<br>
+            <b>Tel : </b>+47 666 6666</p>
+          </div>
+      </aside>
 
     <!-- EXERCISE 6: 
             Write a "Leave Email" form. 
@@ -140,7 +156,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
         <br>
         <div class="promotion">
           <form>
-            Email<input id="email" type="email" name="email"/><br>
+            Email<input id="email" type="email" name="email" onkeypress="return noEnter(event)" /><br>
             <button type="button" onclick="sendBtn()">Send</button>
           </form>
         </div>
@@ -169,6 +185,27 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
     <!-- EXERCISE 8: 
             Create a table with the price for the services of the barber shop
         -->
+        <div class="promotion">
+        <table>
+          <tr>
+            <th>MENU</th>
+          </tr>
+          <tr>
+            <td>HairCut</td>
+            <td>37$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td> Full HairCut + Beard</td>
+            <td>65$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>FaceMask</td>
+            <td>20$</td>
+          </tr>
+        </table>
+      </div>
 
     <!-- EXERCISE 9: 
             Place here a footer including:
@@ -182,7 +219,7 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
           <p><b>Address : </b>Skippergata 18, 0152 Oslo<br>
             <b>Website : </b>artofbarber.no<br>
             <b>Tel : </b>+47 666 6666<br>
-            <a href="mailto:artofbarber.com">Email : artofbarber.com</a>
+            <b>Email : </b><a href="mailto:artofbarber.com">artofbarber.com</a>
           </p>
 
         </footer>
@@ -201,18 +238,36 @@ Note: the form should just be implemented in HTML + CSS, no extra code needed.
       }
 
       function sendBtn() {
-        
+        let email = document.querySelector("#email").value
+          if( email.includes("@")){
+            console.log(email)
+            document.querySelector("#email").value=""
+          }else{
+            alert("Please insert an email!")
+          }
       }
 
 
       function sendReservation(){
-        let phone = document.querySelector("#phoneNr").value;
-        let date = document.querySelector("#date").value;
-        let name = document.querySelector("#name").value;
+        let phone = document.querySelector("#phoneNr").value
+        let date = document.querySelector("#date").value
+        let name = document.querySelector("#name").value
 
-        if(phone !== "" && date !== "" && name !== ""){
-          console.log(phone,date,name);
+        if(name !== "" && date !== "" && phone !== ""){
+          console.log("An reservation was made by, Name: ",name," on : ",date," with phone number : ",phone)
+          alert("You just made an reservation!")
+          document.querySelector("#phoneNr").value=""
+          document.querySelector("#date").value=""
+          document.querySelector("#name").value=""
+        }else{
+          alert("Please fill all the fields!")
         }
+      }
+
+      function noEnter(e){
+        e = e || window.event;
+		    let key = e.keyCode || e.charCode;
+		    return key !== 13; 
       }
     </script>
   </body>
