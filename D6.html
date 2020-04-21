@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <script>
+      /* EXERCISE 1
+            Write a function to change the document title of the page in something else
+            */
+
+      function changeTitle(newTitle) {
+        let title = document.querySelector("body div h1")
+        title.innerText =newTitle;
+      }
+
+      /* EXERCISE 2
+            Write a function to change the class of the H1 on a page in "myHeading"
+            */
+
+      function addClassToHeading() {
+        let h1Class = document.querySelector("body div h1")
+        h1Class.classList.add("myHeading")
+      }
+
+      /* EXERCISE 3
+            Write a function to change the text of only the p which are child of a div
+            */
+
+      function changePcontent() {
+        let newStyle = document.querySelector("div p")
+        newStyle.style.color= "red"
+      }
+
+      /* EXERCISE 4
+            Write a function to change the destination of every link to https://www.google.com
+            */
+
+      function changeUrls() {
+        let newLinks = document.querySelectorAll("a")
+        for ( let i=0; i<newLinks.length; i++){
+          newLinks[i].href="https://www.google.com"
+        }
+        
+      }
+
+      /* EXERCISE 5
+            Write a function to add a new item ONLY to the second list
+            */
+
+      function addToTheSecond(content) {
+        let newItem = document.createElement("li")
+        let reference = document.querySelector("#secondList")
+
+        newItem.innerText = content
+        reference.appendChild(newItem)
+      }
+
+      /* EXERCISE 6
+           Write a function to add a second paragraph to the div
+            */
+
+      function addParagraph(content) {
+        let reference = document.querySelectorAll("div")
+
+        for (let i = 0; i <reference.length; i++) {
+          var newP = document.createElement('p')
+          newP.innerHTML = content
+          reference[i].appendChild(newP)
+        }
+
+        
+
+      }
+
+      /* EXERCISE 7
+           Write a function to make the first UL disappear
+            */
+
+      function firstUlDisappear() {
+        let reference = document.querySelector("#firstList")
+        reference.style.display="none"
+
+      }
+
+      /* EXERCISE 8
+            Write a function to make the background of every UL green
+            */
+
+      function paintItGreen() {
+        let paint = document.querySelectorAll("ul")
+        for(let i=0; i<paint.length; i++){
+          paint[i].style.backgroundColor = "green"
+        }
+      }
+
+      /* EXERCISE 9
+            Make the heading of the page changing color every time the user clicks on it
+            */
+
+      function makeItClickable() {
+
+        let h1 = document.querySelector("h1")
+        let allchar="0123456789ABCDEF";
+        let randCol= "";
+
+        h1.addEventListener("click",color);
+        function color(){
+        for(let i=0; i<6; i++){
+          randCol += allchar[Math.floor(Math.random()*16)];
+          }
+          h1.style.backgroundColor= "#"+randCol;
+          randCol=""
+          console.log(randCol)
+        }
+      }
+
+      /* EXERCISE 10
+          Create a new welcome alert message when the page successfully loads
+            */
+
+      window.onload = function () {
+          alert("Welcome!")
+      }
+
+      /* EXERCISE 11
+            Use HTML5 tags to divide sections, headers etc 
+            */
+    </script>
+
+    <style>
+      .myHeading {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>This is the title of the page</h1>
+        <h2>This is the subtitle of the page</h2>
+      </div>
+    </header>
+
+    <section>
+      <div>
+        <hr />
+
+        <ul id="firstList">
+          <li>1st</li>
+          <li>2nd</li>
+          <li>3rd</li>
+        </ul>
+
+        <ul id="secondList">
+          <li>1st</li>
+          <li>2nd</li>
+          <li>3rd</li>
+        </ul>
+        
+        <a href="strive.school">This link goes to Strive School</a>
+
+        <div>
+          <p>This text is just for the exercise</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <p>And this text is just for the exercise too!</p>
+      </div>
+    </footer>
+  </body>
+</html>
