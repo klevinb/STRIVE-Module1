@@ -99,16 +99,18 @@
         let h1 = document.querySelector("h1")
         let allchar="0123456789ABCDEF";
         let randCol= "";
+        
 
         h1.addEventListener("click",color);
         function color(){
         for(let i=0; i<6; i++){
           randCol += allchar[Math.floor(Math.random()*16)];
           }
-          h1.style.backgroundColor= "#"+randCol;
+          h1.style.color= "#"+randCol;
           randCol=""
-          console.log(randCol)
+          
         }
+        console.log(randCol)
       }
 
       /* EXERCISE 10
