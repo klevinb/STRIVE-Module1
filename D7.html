@@ -102,7 +102,6 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       function removeLast(){
          let reference = document.querySelectorAll("#myTaskList li")
          if(reference.length !==0){
-            // reference[reference.length-1].style.display = "none"
            reference[reference.length-1].remove()
          }else{
             alert("List is empty! Please add an item to be able to use this option!")
@@ -116,7 +115,6 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       function removeFirst(){
          let reference = document.querySelectorAll("#myTaskList li")
          if(reference.length !==0){
-            // reference[reference.length-1].style.display = "none"
            reference[0].remove()
          }else{
             alert("List is empty! Please add an item to be able to use this option!")
@@ -167,6 +165,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
          
          if(!array.some(isNaN)){
             //bubbleSort for numbers
+            
          }else{
             array.sort()
          }

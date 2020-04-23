@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BINGO</title>
+        <style>
+              body {
+                background-color: #292929;
+                color: white;
+                font-family: "Nunito", sans-serif;
+                max-width: 768px;
+                margin: 0 auto;
+                text-align: center;
+                
+            }
+
+            #bingoT {
+                width: 100%;
+                margin-bottom: 20px;
+                border: 1px solid white;
+                margin-top: 50px;
+            }
+
+            .newElement {
+                display: inline-block;
+                width: 40px;
+                text-align: center;
+                height: 2px;
+                margin-bottom: 40px;
+            }
+            input[type=button]{
+                background-color: transparent;
+                border: 1px solid white;
+                color: blanchedalmond;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+            input[type=number]{
+                width: 50px;
+            }
+
+            #spinBttn {
+                background-color: gold;
+                color: black;
+                font-weight: bolder;
+                font-size: 20px;
+                margin: 10px;
+                padding: 20px;
+            }
+            .selected {
+                display: inline-block;
+                width: 40px;
+                text-align: center;
+                height: 2px;
+                margin-bottom: 40px;
+                color: red;
+            }
+            .userNrClass {
+                display: inline-block;
+                width: 30px;
+                text-align: center;
+                height: 2px;
+                margin-bottom: 40px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="bingoT"></div>
+        <input type="button" id="spinBttn" value="Click and WIN!" onclick="rendomSelector()" /><br>
+        <input type="text" id="userName" placeholder="Enter User"/>
+        <input type="button" value="Add User" onclick="addUsers()" /><br>
+        <div id="users">
+            <h1>User Board</h1>
+            <div id="userNumbers"></div>
+        </div>
+        <script>
+            window.onload = function(){
+                let length= 76
+                let reference = document.querySelector("#bingoT")
+                
+                for(let i=0; i<length; i++){
+
+                    let child = document.createElement("div")
+                    child.className = "newElement"
+
+                    let newElement = document.createElement("h3")
+                    let element = i+1
+                    newElement.innerText = element
+
+                    child.appendChild(newElement)
+                    reference.appendChild(child)
+                }             
+                
+            }
+
+            function rendomSelector() {
+
+                let user = document.getElementById("userName").value
+                let userN = document.getElementById("userN").value
+                if(user !== "" || userN !== ""){
+                    for(let i=0; i<24; i++){
+                        numbers()
+                    }
+                    selectedNr()
+                }else{
+                    alert("Please add an User to play this game!")
+                }
+                document.getElementById("userN").id=""
+            }
+
+            function numbers(){
+                let randomNr = Math.floor(Math.random() * 76) + 1
+
+                var reference = document.querySelectorAll("#bingoT .newElement")
+
+                for(let i=0; i<reference.length; i++){
+                    // console.log(reference[i].innerText)
+                    if(randomNr === parseInt(reference[i].innerText)){
+                        reference[i].classList = `selected`
+                    }
+                        
+                }
+                
+            }
+
+            function selectedNr(){
+                let reference = document.querySelectorAll("#bingoT .selected")
+                let newReference = document.querySelector("#users")
+                
+
+                for(let i=0; i<reference.length; i++){
+                    let userNr = document.createElement("div")
+                    userNr.className = "userNrClass"
+                    let output = document.createElement("h3")
+
+                    output.innerText= reference[i].innerText
+
+                    userNr.appendChild(output)
+                    newReference.appendChild(userNr)
+                }
+                let br = document.createElement("br")
+                newReference.appendChild(br)
+            }
+
+            function clear(){
+                let reference = document.querySelectorAll("#bingoT .selected")
+                for(let i=0; i<reference.length; i++){
+                    reference[i].classList = "newElement"
+                }
+            }
+
+            function addUsers(){
+                
+                var user = document.getElementById("userName").value
+                let reference = document.querySelector("#users")
+                if(user.length > 0){
+                    clear()
+                    alert("Your are now ready to play!")
+                    let newName = document.createElement("h2")
+
+                    newName.innerText = user
+                    newName.id="userN"
+                    reference.appendChild(newName)
+
+                }else{
+                    alert("Sorry! You need to add an User!")
+                }
+                document.getElementById("userName").value=""
+                
+
+            }
+        </script>
+    </body>
+</html>
