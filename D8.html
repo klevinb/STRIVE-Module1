@@ -96,16 +96,23 @@
             function rendomSelector() {
 
                 let user = document.getElementById("userName").value
-                let userN = document.getElementById("userN").value
-                if(user !== "" || userN !== ""){
+                let userN = document.getElementById("userN")
+                if(!userN){
+                    alert("Please add an user!")
+                }else{
+                    if(user !== "" || userN !== ""){
                     for(let i=0; i<24; i++){
                         numbers()
                     }
                     selectedNr()
-                }else{
-                    alert("Please add an User to play this game!")
+                    }else{
+                        alert("Please add an User to play this game!")
+                    }
+                    document.getElementById("userN").id=""
                 }
-                document.getElementById("userN").id=""
+                
+                
+                
             }
 
             function numbers(){
@@ -165,7 +172,7 @@
                 }else{
                     alert("Sorry! You need to add an User!")
                 }
-                document.getElementById("userName").value=""
+                
                 
 
             }
