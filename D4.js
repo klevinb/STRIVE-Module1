@@ -238,7 +238,9 @@ The function loops and prints a random number between 0 and 9 until the random n
 */
 
 function loopUntil(X){
-
+    for(let i=0; i<X; i++){
+        console.log(Math.floor(Math.random() * (X+1)))
+    }
 }
 
 /* WHEN YOU ARE FINISHED
